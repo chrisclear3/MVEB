@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MVEB | Project Page</title>
+    <meta
+      name="description"
+      content="MVEB: Illuminating Visual Identity in Universal Multimodal Embeddings."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top">MVEB</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#abstract">Abstract</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-layout">
+          <div>
+            <p class="eyebrow">CVPR 2026</p>
+            <h1>Illuminating Visual Identity in Universal Multimodal Embeddings</h1>
+            <p class="hero-summary">
+              We study a missing capability in universal multimodal embeddings:
+              visual identity discrimination (VisID). We introduce
+              <strong>MVEB</strong>, a benchmark and training framework that
+              improves identity-level retrieval while keeping strong general
+              multimodal performance.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="./assets/paper.pdf">Paper PDF</a>
+              <a class="button" href="https://github.com/chrisclear3/MVEB">Code</a>
+              <a class="button" href="https://chrisclear3.github.io/MVEB">Project Page</a>
+            </div>
+            <div class="authors">
+              <p>
+                Jiawei Cao, Junyi Feng, Jiashen Hua, Ziheng Huang, Bing Deng,
+                Kaijie Wu, Chaochen Gu, Jieping Ye
+              </p>
+              <p class="affiliations">
+                Shanghai Jiao Tong University · Alibaba Group
+              </p>
+            </div>
+          </div>
+          <div class="hero-art">
+            <img src="./assets/main.jpg" alt="MVEB teaser figure" />
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-strip">
+        <div class="container stats-grid">
+          <article class="stat-card">
+            <strong>4</strong>
+            <span>VisID Meta-Tasks</span>
+          </article>
+          <article class="stat-card">
+            <strong>28</strong>
+            <span>Sub-datasets</span>
+          </article>
+          <article class="stat-card">
+            <strong>522K</strong>
+            <span>MVEB Samples</span>
+          </article>
+          <article class="stat-card">
+            <strong>20 + 8</strong>
+            <span>Train / OOD Validation</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="abstract" class="section">
+        <div class="container section-grid">
+          <div>
+            <p class="section-kicker">Abstract</p>
+            <h2>Visual Identity Is Missing in Existing UME Training</h2>
+          </div>
+          <div class="rich-text">
+            <p>
+              Universal Multimodal Embeddings (UMEs) unify diverse modalities
+              and tasks into a shared representation space, but visual identity
+              discrimination remains underexplored.
+            </p>
+            <p>
+              To bridge this gap, we propose a unified VisID formulation and
+              introduce MVEB, curated from real-world and synthetic data to
+              support both evaluation and training.
+            </p>
+            <p>
+              We further design an identity-aware learning framework that
+              jointly optimizes general multimodal alignment and identity-level
+              discrimination.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="benchmark" class="section alt">
+        <div class="container">
+          <p class="section-kicker">Benchmark</p>
+          <h2>Comprehensive Coverage for Identity-Centric Evaluation</h2>
+          <div class="task-grid">
+            <article class="task-card">
+              <h3>Identity Recognition</h3>
+              <p>Verify whether two inputs depict the same real-world entity.</p>
+            </article>
+            <article class="task-card">
+              <h3>Re-Identification</h3>
+              <p>Match a target identity across viewpoint and condition shifts.</p>
+            </article>
+            <article class="task-card">
+              <h3>Identity Grounding</h3>
+              <p>Ground the same identity in complex scenes via reference cues.</p>
+            </article>
+            <article class="task-card">
+              <h3>Identity Editing</h3>
+              <p>Preserve identity under text-guided generative editing.</p>
+            </article>
+          </div>
+          <article class="benchmark-panel">
+            <div class="benchmark-copy">
+              <h3>Data Curation Pipeline</h3>
+              <p>
+                The MVEB curation process includes collection and screening,
+                refinement with balancing and hard-negative mining, and
+                identity-aware splitting to reduce train-test identity overlap.
+              </p>
+              <div class="hero-actions">
+                <a class="button" href="./assets/curation.pdf">Curation Figure (PDF)</a>
+                <a class="button" href="./assets/dataset.pdf">Dataset Figure (PDF)</a>
+              </div>
+            </div>
+            <div class="benchmark-art">
+              <img
+                src="./assets/compare.jpg"
+                alt="Qualitative comparison for visual identity grounding tasks"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="method" class="section">
+        <div class="container">
+          <p class="section-kicker">Method</p>
+          <h2>Identity-Aware Training Compatible with Standard UME Pipelines</h2>
+          <div class="method-grid">
+            <article class="method-card">
+              <span>1</span>
+              <h3>Semantic-Aware Sampling</h3>
+              <p>
+                Preserve standard in-batch contrastive learning for generic
+                multimodal alignment.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>2</span>
+              <h3>Identity-Aware Sampling</h3>
+              <p>
+                Pre-schedule batches to avoid false negatives by controlling
+                identity collisions across mini-batches.
+              </p>
+            </article>
+            <article class="method-card">
+              <span>3</span>
+              <h3>Structured Hard Negatives</h3>
+              <p>
+                Inject hard cases from predefined relations to enforce
+                fine-grained identity boundaries.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="section alt">
+        <div class="container results-grid">
+          <article class="result-card">
+            <p class="result-label">Core Outcome</p>
+            <h3>Strong Identity Discrimination Gains</h3>
+            <p>
+              Experiments show clear improvements on identity-centric evaluation
+              while retaining competitive general multimodal capability.
+            </p>
+          </article>
+          <article class="result-card">
+            <p class="result-label">Benchmark Scale</p>
+            <div class="result-metrics">
+              <div>
+                <strong>28</strong>
+                <span>Sub-datasets</span>
+              </div>
+              <div>
+                <strong>522K</strong>
+                <span>Samples</span>
+              </div>
+            </div>
+          </article>
+          <article class="result-card narrative">
+            <p class="result-label">Resources</p>
+            <p>
+              Download the paper and inspect curation/benchmark visualizations
+              from the links below.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="./assets/paper.pdf">Paper PDF</a>
+              <a class="button" href="./assets/fig1.pdf">Teaser Figure (PDF)</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="citation" class="section">
+        <div class="container">
+          <p class="section-kicker">Citation</p>
+          <h2>Cite MVEB</h2>
+          <article class="citation-card">
+            <button class="copy-button" id="copyBib" type="button">Copy BibTeX</button>
+            <pre id="bibtex">@inproceedings{cao2026mveb,
+  title={Illuminating Visual Identity in Universal Multimodal Embeddings},
+  author={Cao, Jiawei and Feng, Junyi and Hua, Jiashen and Huang, Ziheng and Deng, Bing and Wu, Kaijie and Gu, Chaochen and Ye, Jieping},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2026}
+}</pre>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <p>MVEB Project Page</p>
+        <p>Built from the CVPR 2026 paper source.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
