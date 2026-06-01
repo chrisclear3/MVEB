@@ -1,255 +1,459 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MVEB | Project Page</title>
-    <meta
-      name="description"
-      content="MVEB: Illuminating Visual Identity in Universal Multimodal Embeddings."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="#top">MVEB</a>
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#abstract">Abstract</a>
-          <a href="#benchmark">Benchmark</a>
-          <a href="#method">Method</a>
-          <a href="#results">Results</a>
-          <a href="#citation">Citation</a>
-        </nav>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illuminating Visual Identity in Universal Multimodal Embeddings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --link-color: #2563eb;
+            --link-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --bg-subtle: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: #fff;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 48px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .venue {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--link-color);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.25;
+            max-width: 800px;
+            margin: 0 auto 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .authors {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .authors a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .authors a:hover {
+            border-bottom-color: var(--text-secondary);
+        }
+
+        .affiliations {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: #fff;
+            border-color: var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-subtle);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Sections */
+        section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+
+        p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        /* Abstract */
+        .abstract-box {
+            background: var(--bg-subtle);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 8px;
+        }
+
+        .abstract-box p {
+            margin-bottom: 0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Figures */
+        .figure {
+            margin: 28px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        .figure-caption {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            line-height: 1.6;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tasks grid */
+        .tasks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .task-card {
+            background: var(--bg-subtle);
+            border-radius: 10px;
+            padding: 20px 22px;
+            border: 1px solid var(--border);
+        }
+
+        .task-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .task-card p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Results highlight */
+        .highlight {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            font-size: 14px;
+            color: #854d0e;
+        }
+
+        .highlight strong {
+            color: #713f12;
+        }
+
+        /* Lists */
+        ul {
+            margin: 12px 0 12px 20px;
+        }
+
+        ul li {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .hero {
+                padding: 48px 0 36px;
+            }
+
+            .tasks {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <div class="venue">CVPR 2026</div>
+            <h1>Illuminating Visual Identity in Universal Multimodal Embeddings</h1>
+            <div class="authors">
+                <a href="#">Jiawei Cao</a><sup>1,2*</sup>, 
+                <a href="#">Junyi Feng</a><sup>2*</sup>, 
+                <a href="#">Jiashen Hua</a><sup>2&dagger;&Dagger;</sup>, 
+                <a href="#">Ziheng Huang</a><sup>2</sup>, 
+                <a href="#">Bing Deng</a><sup>2</sup>, 
+                <a href="#">Kaijie Wu</a><sup>1&Dagger;</sup>, 
+                <a href="#">Chaochen Gu</a><sup>1&Dagger;</sup>, 
+                <a href="#">Jieping Ye</a><sup>2</sup>
+            </div>
+            <div class="affiliations">
+                <sup>1</sup>Shanghai Jiao Tong University &nbsp;&nbsp; <sup>2</sup>Alibaba Group<br>
+                <sup>*</sup>Equal contribution &nbsp; <sup>&dagger;</sup>Project Leader &nbsp; <sup>&Dagger;</sup>Corresponding author
+            </div>
+            <div class="buttons">
+                <a href="#" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Paper
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.002 0C5.375 0 0 5.373 0 12.002c0 5.35 3.39 9.892 8.13 11.555.594.11.813-.258.813-.573 0-.283-.01-1.034-.016-2.03-3.293.717-3.987-1.588-3.987-1.588-.538-1.368-1.315-1.732-1.315-1.732-1.075-.735.082-.72.082-.72 1.188.084 1.814 1.22 1.814 1.22 1.055 1.81 2.768 1.288 3.443.985.107-.765.413-1.288.75-1.584-2.628-.3-5.393-1.314-5.393-5.85 0-1.293.46-2.35 1.218-3.177-.12-.302-.528-1.515.117-3.158 0 0 .995-.32 3.258 1.214.944-.263 1.96-.394 2.968-.399 1.006.005 2.022.136 2.968.399 2.26-1.534 3.252-1.214 3.252-1.214.648 1.643.24 2.856.12 3.158.76.827 1.216 1.884 1.216 3.177 0 4.54-2.77 5.546-5.41 5.84.426.368.805 1.094.805 2.207 0 1.594-.015 2.877-.015 3.27 0 .317.216.69.825.573C20.615 21.89 24 17.35 24 12.002 24 5.373 18.63 0 12.002 0z"/></svg>
+                    Hugging Face
+                </a>
+            </div>
+        </div>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container hero-layout">
-          <div>
-            <p class="eyebrow">CVPR 2026</p>
-            <h1>Illuminating Visual Identity in Universal Multimodal Embeddings</h1>
-            <p class="hero-summary">
-              We study a missing capability in universal multimodal embeddings:
-              visual identity discrimination (VisID). We introduce
-              <strong>MVEB</strong>, a benchmark and training framework that
-              improves identity-level retrieval while keeping strong general
-              multimodal performance.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="./assets/paper.pdf">Paper PDF</a>
-              <a class="button" href="https://github.com/chrisclear3/MVEB">Code</a>
-              <a class="button" href="https://chrisclear3.github.io/MVEB">Project Page</a>
-            </div>
-            <div class="authors">
-              <p>
-                Jiawei Cao, Junyi Feng, Jiashen Hua, Ziheng Huang, Bing Deng,
-                Kaijie Wu, Chaochen Gu, Jieping Ye
-              </p>
-              <p class="affiliations">
-                Shanghai Jiao Tong University · Alibaba Group
-              </p>
-            </div>
-          </div>
-          <div class="hero-art">
-            <img src="./assets/main.jpg" alt="MVEB teaser figure" />
-          </div>
-        </div>
-      </section>
-
-      <section class="stats-strip">
-        <div class="container stats-grid">
-          <article class="stat-card">
-            <strong>4</strong>
-            <span>VisID Meta-Tasks</span>
-          </article>
-          <article class="stat-card">
-            <strong>28</strong>
-            <span>Sub-datasets</span>
-          </article>
-          <article class="stat-card">
-            <strong>522K</strong>
-            <span>MVEB Samples</span>
-          </article>
-          <article class="stat-card">
-            <strong>20 + 8</strong>
-            <span>Train / OOD Validation</span>
-          </article>
-        </div>
-      </section>
-
-      <section id="abstract" class="section">
-        <div class="container section-grid">
-          <div>
-            <p class="section-kicker">Abstract</p>
-            <h2>Visual Identity Is Missing in Existing UME Training</h2>
-          </div>
-          <div class="rich-text">
-            <p>
-              Universal Multimodal Embeddings (UMEs) unify diverse modalities
-              and tasks into a shared representation space, but visual identity
-              discrimination remains underexplored.
-            </p>
-            <p>
-              To bridge this gap, we propose a unified VisID formulation and
-              introduce MVEB, curated from real-world and synthetic data to
-              support both evaluation and training.
-            </p>
-            <p>
-              We further design an identity-aware learning framework that
-              jointly optimizes general multimodal alignment and identity-level
-              discrimination.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="benchmark" class="section alt">
+    <section>
         <div class="container">
-          <p class="section-kicker">Benchmark</p>
-          <h2>Comprehensive Coverage for Identity-Centric Evaluation</h2>
-          <div class="task-grid">
-            <article class="task-card">
-              <h3>Identity Recognition</h3>
-              <p>Verify whether two inputs depict the same real-world entity.</p>
-            </article>
-            <article class="task-card">
-              <h3>Re-Identification</h3>
-              <p>Match a target identity across viewpoint and condition shifts.</p>
-            </article>
-            <article class="task-card">
-              <h3>Identity Grounding</h3>
-              <p>Ground the same identity in complex scenes via reference cues.</p>
-            </article>
-            <article class="task-card">
-              <h3>Identity Editing</h3>
-              <p>Preserve identity under text-guided generative editing.</p>
-            </article>
-          </div>
-          <article class="benchmark-panel">
-            <div class="benchmark-copy">
-              <h3>Data Curation Pipeline</h3>
-              <p>
-                The MVEB curation process includes collection and screening,
-                refinement with balancing and hard-negative mining, and
-                identity-aware splitting to reduce train-test identity overlap.
-              </p>
-              <div class="hero-actions">
-                <a class="button" href="./assets/curation.pdf">Curation Figure (PDF)</a>
-                <a class="button" href="./assets/dataset.pdf">Dataset Figure (PDF)</a>
-              </div>
+            <h2>Abstract</h2>
+            <div class="abstract-box">
+                <p>
+                    Universal Multimodal Embeddings (UMEs) aim to unify various modalities and tasks into a shared representation space. In recent years, this field has witnessed substantial progress driven by the development of Multimodal Large Language Models (MLLMs). However, a crucial capability, <strong>visual identity discrimination</strong>, remains underexplored in existing UME methods, despite its critical role in a wide range of tasks, including instance retrieval, re-identification, and identity preservation in AI-generated content. To bridge this gap, we propose a unified formulation for visual identity discrimination (VisID) and introduce <strong>MVEB</strong> (<strong>M</strong>ultimodal <strong>V</strong>isual Identity <strong>E</strong>mbedding <strong>B</strong>enchmark), a large-scale benchmark curated from both real-world and synthetic datasets to support evaluation and training. Furthermore, we present a simple yet effective learning framework that jointly optimizes general multimodal and visual identity representations through a carefully designed identity-aware sampling mechanism. Extensive experiments demonstrate that our approach successfully endows UMEs with strong identity discrimination capability and maintains competitive general multimodal performance. We believe this work not only illuminates a critical yet neglected capability, but also takes a step toward more holistic universal multimodal embeddings.
+                </p>
             </div>
-            <div class="benchmark-art">
-              <img
-                src="./assets/compare.jpg"
-                alt="Qualitative comparison for visual identity grounding tasks"
-              />
-            </div>
-          </article>
         </div>
-      </section>
+    </section>
 
-      <section id="method" class="section">
+    <section>
         <div class="container">
-          <p class="section-kicker">Method</p>
-          <h2>Identity-Aware Training Compatible with Standard UME Pipelines</h2>
-          <div class="method-grid">
-            <article class="method-card">
-              <span>1</span>
-              <h3>Semantic-Aware Sampling</h3>
-              <p>
-                Preserve standard in-batch contrastive learning for generic
-                multimodal alignment.
-              </p>
-            </article>
-            <article class="method-card">
-              <span>2</span>
-              <h3>Identity-Aware Sampling</h3>
-              <p>
-                Pre-schedule batches to avoid false negatives by controlling
-                identity collisions across mini-batches.
-              </p>
-            </article>
-            <article class="method-card">
-              <span>3</span>
-              <h3>Structured Hard Negatives</h3>
-              <p>
-                Inject hard cases from predefined relations to enforce
-                fine-grained identity boundaries.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="results" class="section alt">
-        <div class="container results-grid">
-          <article class="result-card">
-            <p class="result-label">Core Outcome</p>
-            <h3>Strong Identity Discrimination Gains</h3>
+            <h2>Overview</h2>
             <p>
-              Experiments show clear improvements on identity-centric evaluation
-              while retaining competitive general multimodal capability.
+                We revisit <strong>Visual Identity Discrimination (VisID)</strong> from the perspective of Universal Multimodal Embeddings (UMEs). Current state-of-the-art UMEs often fail to distinguish desired visual identities, as existing benchmarks like MMEB include only a single image-to-image identity-matching subset. We formally define VisID and decompose it into four practical meta-tasks, introducing MVEB to comprehensively evaluate and enhance this critical capability.
             </p>
-          </article>
-          <article class="result-card">
-            <p class="result-label">Benchmark Scale</p>
-            <div class="result-metrics">
-              <div>
-                <strong>28</strong>
-                <span>Sub-datasets</span>
-              </div>
-              <div>
-                <strong>522K</strong>
-                <span>Samples</span>
-              </div>
+            <div class="figure">
+                <img src="assets/fig1.png" alt="Overview of VisME">
+                <div class="figure-caption">
+                    <strong>Overview of the proposed VisME.</strong> (a) Qualitative comparison with existing UMEs on visual identity grounding tasks; (b) Illustration of four meta-tasks in MVEB (Identity Recognition, Re-Identification, Identity Grounding, and Identity Editing), covering 28 datasets; (c) Quantitative evaluation on MVEB and MMEB benchmarks.
+                </div>
             </div>
-          </article>
-          <article class="result-card narrative">
-            <p class="result-label">Resources</p>
-            <p>
-              Download the paper and inspect curation/benchmark visualizations
-              from the links below.
-            </p>
-            <div class="hero-actions">
-              <a class="button" href="./assets/paper.pdf">Paper PDF</a>
-              <a class="button" href="./assets/fig1.pdf">Teaser Figure (PDF)</a>
-            </div>
-          </article>
         </div>
-      </section>
+    </section>
 
-      <section id="citation" class="section">
+    <section>
         <div class="container">
-          <p class="section-kicker">Citation</p>
-          <h2>Cite MVEB</h2>
-          <article class="citation-card">
-            <button class="copy-button" id="copyBib" type="button">Copy BibTeX</button>
-            <pre id="bibtex">@inproceedings{cao2026mveb,
+            <h2>Method</h2>
+            <p>
+                We propose <strong>VisME</strong>, a joint training framework that unifies visual identity discrimination learning with standard contrastive objectives. Our method employs an identity-aware sampling strategy and a tailored contrastive loss to enforce intra-identity consistency, enabling seamless integration of identity-level and semantic-level representations.
+            </p>
+
+            <h3>Four Meta-Tasks of VisID</h3>
+            <div class="tasks">
+                <div class="task-card">
+                    <h4>Identity Recognition</h4>
+                    <p>Determine whether two images belong to the same identity, covering product recognition, landmark recognition, artifact matching, and fine-grained species recognition.</p>
+                </div>
+                <div class="task-card">
+                    <h4>Re-Identification (Re-ID)</h4>
+                    <p>Match the same individual entity (person, face, or vehicle) across distinct visual observations or depictions under substantial appearance changes.</p>
+                </div>
+                <div class="task-card">
+                    <h4>Identity Grounding</h4>
+                    <p>Use a reference image depicting a known identity as the query to retrieve images containing the same entity, linking partial observations to complete identities.</p>
+                </div>
+                <div class="task-card">
+                    <h4>Identity Editing</h4>
+                    <p>Assess robustness of identity representation against generative transformations, where text-prompted edits alter attributes while preserving subject identity.</p>
+                </div>
+            </div>
+
+            <h3>Framework</h3>
+            <div class="figure">
+                <img src="assets/model.png" alt="VisME Framework" style="max-width: 720px;">
+                <div class="figure-caption">
+                    <strong>VisME framework.</strong> Built on MLLMs with LoRA fine-tuning, our model encodes multimodal inputs into a unified embedding space via the last hidden state.
+                </div>
+            </div>
+
+            <p>
+                Our training corpus combines MMEB and MVEB, totaling 40 datasets with 1.1M pairs. We use LoRA (rank=16, alpha=32) and GradCache for memory-efficient training. The key innovation is our <strong>identity-aware sampling</strong> strategy, which ensures samples sharing identical IDs are not treated as negative pairs, preventing severe performance degradation on identity-centric tasks.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Results</h2>
+
+            <h3>Main Results</h3>
+            <p>
+                VisME establishes state-of-the-art results on both MMEB and MVEB benchmarks. Our 7B model achieves an average score of <strong>72.2</strong> on MMEB and <strong>78.8</strong> on MVEB, significantly outperforming all baselines. Notably, our 2B model alone scores 69.1 on MVEB, surpassing all existing UMEs including 7B models.
+            </p>
+            <div class="figure">
+                <img src="assets/main_results.png" alt="Main Results">
+                <div class="figure-caption">
+                    Comparison of methods on benchmark datasets. VisME achieves dominant performance across both general multimodal (MMEB) and identity-centric (MVEB) benchmarks.
+                </div>
+            </div>
+
+            <h3>Qualitative Comparison</h3>
+            <p>
+                VisME demonstrates superior identity-level capabilities across all four meta-tasks compared to VLM2Vec-7B. It accurately identifies fine-grained species by capturing subtle visual details, exhibits broad cross-domain versatility, and introduces identity grounding capability absent in prior UMEs.
+            </p>
+            <div class="figure">
+                <img src="assets/figure4.png" alt="Qualitative Results">
+                <div class="figure-caption">
+                    Qualitative comparison on four tasks (ID-Rec, Re-ID, ID-Grd, ID-Edit). Green boxes denote correct results, red boxes denote failures. VisME successfully retrieves target identities where VLM2Vec fails.
+                </div>
+            </div>
+
+            <h3>Embedding Visualization</h3>
+            <p>
+                The t-SNE visualization reveals that VisME produces well-clustered embeddings where same-identity samples are tightly grouped, while VLM2Vec scatters them across the space, confirming our model's stronger identity discrimination capability.
+            </p>
+            <div class="figure">
+                <img src="assets/tsne.png" alt="t-SNE Visualization">
+                <div class="figure-caption">
+                    t-SNE visualization of embeddings on MVEB test sets. VisME (left) shows clear intra-identity clustering compared to VLM2Vec (right).
+                </div>
+            </div>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li><strong>Identity-aware sampling</strong> improves MVEB in-distribution accuracy by <strong>+11.9</strong> and out-of-distribution by <strong>+12.8</strong> points.</li>
+                <li><strong>Mixed training</strong> on MMEB and MVEB consistently improves both benchmarks, with MVEB gains exceeding MMEB, indicating strong complementarity.</li>
+                <li>VisME maintains competitive general multimodal performance while substantially enhancing identity discrimination, achieving the best of both worlds.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Citation</h2>
+            <div style="background: var(--bg-subtle); border-radius: 10px; padding: 20px 24px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; line-height: 1.7; overflow-x: auto;">
+<pre>@inproceedings{cao2026illuminating,
   title={Illuminating Visual Identity in Universal Multimodal Embeddings},
   author={Cao, Jiawei and Feng, Junyi and Hua, Jiashen and Huang, Ziheng and Deng, Bing and Wu, Kaijie and Gu, Chaochen and Ye, Jieping},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2026}
 }</pre>
-          </article>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="site-footer">
-      <div class="container footer-layout">
-        <p>MVEB Project Page</p>
-        <p>Built from the CVPR 2026 paper source.</p>
-      </div>
+    <footer>
+        <div class="container">
+            &copy; 2026 VisME Project. All rights reserved.
+        </div>
     </footer>
 
-    <script src="./script.js"></script>
-  </body>
+</body>
 </html>
